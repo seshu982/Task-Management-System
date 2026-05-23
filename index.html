@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Online Task Management System
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+</head>
+
+<body>
+
+
+  <!-- LOGIN / REGISTER -->
+
+  <div
+    class="container"
+    id="authSection"
+  >
+
+    <div class="auth-box">
+
+      <h1>
+        Task Manager
+      </h1>
+
+      <p>
+        Manage your daily tasks easily
+      </p>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter Name"
+      >
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter Email"
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+      >
+
+      <button onclick="register()">
+        Register
+      </button>
+
+      <button onclick="login()">
+        Login
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- DASHBOARD -->
+
+  <div
+    class="dashboard"
+    id="appSection"
+    style="display:none;"
+  >
+
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+      <h2>
+        Dashboard
+      </h2>
+
+      <ul>
+
+        <li onclick="filterTasks('All')">
+
+          <i class="fa-solid fa-list"></i>
+
+          All Tasks
+
+        </li>
+
+        <li onclick="filterTasks('Pending')">
+
+          <i class="fa-solid fa-clock"></i>
+
+          Pending
+
+        </li>
+
+        <li onclick="filterTasks('Completed')">
+
+          <i class="fa-solid fa-check"></i>
+
+          Completed
+
+        </li>
+
+        <li onclick="toggleDarkMode()">
+
+          <i class="fa-solid fa-moon"></i>
+
+          Dark Mode
+
+        </li>
+
+        <li onclick="logout()">
+
+  <i class="fa-solid fa-right-from-bracket"></i>
+
+  Logout
+
+</li>
+
+      </ul>
+
+    </div>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+
+      <!-- TOP BAR -->
+
+      <div class="top-bar">
+
+        <div>
+
+          <h1>
+            Welcome To Task Management System 👋
+          </h1>
+
+          <p>
+            Organize your tasks efficiently
+          </p>
+
+        </div>
+
+        <input
+          type="text"
+          id="search"
+          placeholder="Search Tasks..."
+          onkeyup="searchTasks()"
+        >
+
+      </div>
+
+
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="card total-card">
+
+          <h3>
+            Total Tasks
+          </h3>
+
+          <span id="totalTasks">
+            0
+          </span>
+
+        </div>
+
+        <div class="card completed-card">
+
+          <h3>
+            Completed
+          </h3>
+
+          <span id="completedTasks">
+            0
+          </span>
+
+        </div>
+
+        <div class="card pending-card">
+
+          <h3>
+            Pending
+          </h3>
+
+          <span id="pendingTasks">
+            0
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- TASK FORM -->
+
+      <div class="task-form">
+
+        <h2>
+          Add New Task
+        </h2>
+
+        <input
+          type="text"
+          id="title"
+          placeholder="Enter Task Title"
+        >
+
+        <textarea
+          id="description"
+          placeholder="Enter Task Description"
+        ></textarea>
+
+        <select id="priority">
+
+          <option value="Low">
+            Low Priority
+          </option>
+
+          <option value="Medium">
+            Medium Priority
+          </option>
+
+          <option value="High">
+            High Priority
+          </option>
+
+        </select>
+
+        <button onclick="addTask()">
+          + Add Task
+        </button>
+
+      </div>
+
+
+
+      <!-- TASK LIST -->
+
+      <div
+        id="taskList"
+        class="task-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- SCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
